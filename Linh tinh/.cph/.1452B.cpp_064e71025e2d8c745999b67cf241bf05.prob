@@ -1,0 +1,1 @@
+{"name":"Local: 1452B","url":"d:\\Summer Training\\Linh tinh\\1452B.cpp","tests":[{"id":1623146978431,"input":"3\n3\n3 2 2\n4\n2 2 3 2\n3\n0 3 0\n","output":"1\n0\n3\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Summer Training\\Linh tinh\\1452B.cpp","group":"local","local":true}
