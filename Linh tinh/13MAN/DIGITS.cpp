@@ -10,8 +10,8 @@ ll f[10]={9,189,2889,38889,488889,5888889,68888889,788888889,8888888889};
 ll n, t;
 
 int main() {
-    freopen("i", "r", stdin);
-    freopen("o", "w", stdout);
+    freopen("digits.inp", "r", stdin);
+    freopen("digits.out", "w", stdout);
 
     cin>>t;
     while(t--){

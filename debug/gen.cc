@@ -11,19 +11,16 @@ long long Rand(long long l, long long r) {
 
 int main() {
     srand(time(0));
-    for (int i = 1; i <= 50; ++i) {
+    for (int i = 10000; i <= 100000; ++i) {
         ofstream inp("i");
-        int n = Rand(2, 200), t = Rand(1, 2);
-        inp << n << ' ' << t << endl;
-        for (int i = 0; i < n; ++i) {
-            inp << Rand(300, 500) << endl;
-        }
+        inp<<i<<endl;
         inp.close();
 
-        system("box.exe");
-        system("box_ac.exe");
+        ofstream out("log");
+        system("ac.exe");
+        system("wa.exe");
         if (system("fc o ans") != 0) {
-            cout << "WA" << endl;
+            out << "WA" << endl;
             return 0;
         }
     }

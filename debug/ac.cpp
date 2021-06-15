@@ -32,56 +32,24 @@ typedef vector<vii> vvii;
 #define pof pop_front
 #define all(x) x.begin(), x.end()
 #define rall(x) x.rbegin(), x.rend()
+#define debug(x) cerr << #x << " = " << x << '\n';
 
-const int N = 207;
-const int M = 507;
-int n,t;
-int a[N],prime[2*M],par[N];
-bool kt[2*M],vis[N];
-vi edge[N];
-
-bool dfs(int u) {
-    if(vis[u]) return 0;
-    vis[u]=true;
-    for(auto v:edge[u]) {
-        if(par[v]==-1||dfs(par[v])) {
-            par[v]=u; return 1;
-        }
-    }
-    return 0;
-}
+ll n,ans=0;
+ll d[10];
 
 int main() {
     fastIO;
     freopen("i","r",stdin);
     freopen("ans","w",stdout);
 
-    cin >> n >> t;
-    forw(i,0,n) cin >> a[i];
-    if(t==1) {
-        int cnt=0;
-        forw(i,0,n) cnt+=(a[i]%2);
-        cout << min(cnt,n-cnt);
-    } else {
-        memset(kt,true,sizeof kt);
-        int cnt=0;
-        forw(i,2,2*M) {
-            if(kt[i]) prime[cnt++]=i;
-            for(int j=0;j<cnt&&i*prime[j]<2*M;j++) {
-                kt[i*prime[j]]=0;
-                if(i%prime[j]==0) break;
-            }
-        }
-        forw(i,0,n) if(a[i]%2==0) {
-            forw(j,0,n) if(kt[a[i]+a[j]]) edge[i].pb(j);
-        }
-        memset(par,-1,sizeof par);
-        int ans=0;
-        forw(i,0,n) if(a[i]%2==0) {
-            memset(vis,false,sizeof vis);
-            ans+=dfs(i);
-        }
-        cout << ans;
-    }
+    for(ll pos=0,p=1;pos<10;pos++,p*=10) d[pos]=9*(pos+1)*p;
+    cin >> n;
+    if(n<=9) return cout << n, 0;
+    ll m=10;
+    int i;
+    for(i=0;m<=n;i++,m*=10) ans+=d[i];
+    m/=10;
+    ans+=(n-m+1)*(i+1);
+    cout << ans;
     return 0;
 }
