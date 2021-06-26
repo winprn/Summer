@@ -12,7 +12,7 @@ pair<ll,ll>f[50];
 ll n,t,k;
 
 ll dfs(ll n, ll k){
-    if(n==0)return 1;
+    if(n==0)return min(k,1LL);
     if(n==1)return 0;
     if(k==f[n].se)return f[n].fi;
     if(k<=f[n-2].se)return dfs(n-2,k);
@@ -21,8 +21,8 @@ ll dfs(ll n, ll k){
 }
 
 int main() {
-    freopen("fib2.inp", "r", stdin);
-    freopen("fib2.out", "w", stdout);
+    freopen("i", "r", stdin);
+    freopen("o", "w", stdout);
 
     f[0]={1,1},f[1]={0,1};
     for(int i=2;i<=45;++i){

@@ -4,23 +4,25 @@ using namespace std;
 typedef long long ll;
 typedef unsigned long long ull;
 typedef long double ld;
-typedef pair<ll,ll> ii;
+typedef pair<int,int> pii;
+typedef pair<ll,ll> pll;
 typedef complex<ld> cp;
 typedef vector<int> vi;
 typedef vector<ll> vll;
-typedef vector<ii> vii;
+typedef vector<pii> vii;
 typedef vector<cp> vcp;
 typedef vector<ld> vld;
 typedef vector<vi> vvi;
 typedef vector<vll> vvll;
 typedef vector<vii> vvii;
 
-#define fastIO ios::sync_with_stdio(false), cin.tie(NULL), cout.tie(NULL)
+#define fastIO ios_base::sync_with_stdio(false), cin.tie(NULL), cout.tie(NULL)
 #define forw(i,l,r) for( int i = (l) ; i < (r) ; i++ )
 #define forb(i,r,l) for( int i = (r) ; i >= (l) ; i-- )
-#define log2i(x) (32 - __builtin_clz((x)) - 1)
-#define log2ll(x) (64 - __builtin_clzll((x)) - 1)
-#define Pi 3.141592653589793
+#define log2i(x) (64 - __builtin_clzll(1ll*(x)) - 1)
+#define numBit(x) (__builtin_popcountll(1ll*(x)))
+#define getBit(x,i) (x>>i&1)
+#define Pi acos(-1.0l)
 #define sz(x) (int)x.size()
 #define mt make_tuple
 #define mp make_pair
@@ -34,22 +36,28 @@ typedef vector<vii> vvii;
 #define rall(x) x.rbegin(), x.rend()
 #define debug(x) cerr << #x << " = " << x << '\n';
 
-ll n,ans=0;
-ll d[10];
+int a[105];
+int n;
 
 int main() {
     fastIO;
+#ifndef ONLINE_JUDGE
     freopen("i","r",stdin);
     freopen("ans","w",stdout);
+#endif // ONLINE_JUDGE
 
-    for(ll pos=0,p=1;pos<10;pos++,p*=10) d[pos]=9*(pos+1)*p;
-    cin >> n;
-    if(n<=9) return cout << n, 0;
-    ll m=10;
-    int i;
-    for(i=0;m<=n;i++,m*=10) ans+=d[i];
-    m/=10;
-    ans+=(n-m+1)*(i+1);
-    cout << ans;
+    cin>>n;
+    for(int i=1;i<=n;++i)cin>>a[i];
+
+    ll ans=0;
+    for(int i=1;i<=n;++i){
+        for(int j=i+1;j<=n;++j){
+            if(a[i]*a[j]==i+j){
+                //cout<<i<<' '<<j<<endl;
+                ++ans;
+            }
+        }
+    }
+    cout<<ans<<endl;
     return 0;
 }

@@ -23,8 +23,6 @@ int to_int(string x){
 int main() {
     cout.precision(4);
     cout<<fixed;
-    freopen("i", "r", stdin);
-    freopen("o", "w", stdout);
 
     cin>>s;
     if((int)s.size()<7){
