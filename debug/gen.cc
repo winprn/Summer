@@ -14,19 +14,14 @@ long long Rand(long long l, long long r) {
 
 int main() {
     srand(time(0));
-    for (int i = 1; i <= 20; ++i) {
+    for (int i = 1; i <= 100; ++i) {
         ofstream inp("i");
-        map<int,bool> mark;
-        int n=Rand(1,20);
+        int n=Rand(70,100);
         inp<<n<<endl;
         for(int i=0;i<n;++i){
-            int cur=Rand(1,2*n);
-            while(mark[cur])cur=Rand(1,2*n);
-
-            inp<<cur<<' ';
-            mark[cur]=1;
+            int tmp=Rand(1,2000);
+            inp<<tmp<<' ';
         }
-
         inp.close();
 
         ofstream out("log");
