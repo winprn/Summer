@@ -1,8 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-int a[10];
+vector<int> a[10];
 
 signed main(){
-    cout<<a[-5];
+    cout<<5/0<<endl;
 }
